@@ -1,5 +1,6 @@
 package com.illusionary.ifd;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -9,6 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Downloader {
+
+    @Value("${com.illusionary.ifd.authorizer}")
+    private String authorizer;
 
     private final OAuth2AuthorizedClientService oauth2CliSrv;
 
