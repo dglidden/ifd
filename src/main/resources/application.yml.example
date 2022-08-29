@@ -1,0 +1,33 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          imgur:
+            authorization-uri: 'https://api.imgur.com/oauth2/authorize'
+            token-uri: 'https://api.imgur.com/oauth2/token'
+        registration:
+          imgur:
+            # client-name: 'imgur'
+            # scope: 'user_info'
+            client-id: 'your_id'
+            client-secret: 'your_secret'
+            authorization-grant-type: 'token'
+            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            provider: 'imgur'
+
+#com:
+#  illusionary:
+#    ifd:
+#      authorizer: 'imgur'
+#      auth_url: 'https://api.imgur.com/oauth2/authorize'
+#      access_url: 'https://api.imgur.com/oauth2/authorize'
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        web:
+          client:
+            RestTemplate: DEBUG
